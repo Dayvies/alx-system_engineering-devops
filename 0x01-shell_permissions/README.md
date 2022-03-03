@@ -1,0 +1,1 @@
+ALL these PERMISSIONS 
