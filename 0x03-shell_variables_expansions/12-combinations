@@ -1,2 +1,2 @@
 #!/bash/bin
-echo {a..d}{a..d}|tr ' ' '\n'|grep -v cc|cat -e
+echo {a..z}{a..z}|tr ' ' '\n'|grep -v oo
