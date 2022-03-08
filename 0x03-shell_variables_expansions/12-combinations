@@ -1,0 +1,2 @@
+#!/bash/bin
+echo {a..d}{a..d}|tr ' ' '\n'|grep -v cc|cat -e
