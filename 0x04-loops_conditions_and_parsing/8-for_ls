@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+for current in *
+do
+     echo "$current" | cut -d '-' -f 2
+done
