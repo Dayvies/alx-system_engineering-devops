@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+#Displays badluck numbers
 x=0
 while [ $x -lt 21 ]
 do

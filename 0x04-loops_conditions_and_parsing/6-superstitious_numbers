@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+#displays superstitious numbers
 x=1
 while [ $x -lt 21 ]
 do
