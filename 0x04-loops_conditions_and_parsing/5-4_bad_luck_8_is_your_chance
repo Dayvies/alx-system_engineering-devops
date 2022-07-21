@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #Displays badluck numbers
 x=0
-while [ $x -lt 11 ]
+while [ $x -lt 10 ]
 do
         if [ "$x" -eq 3 ]
         then
