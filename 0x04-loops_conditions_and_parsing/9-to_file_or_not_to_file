@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-file="school"
 # check status of file
+file="school"
 if [ -e "$file" ]
 then
         echo "school file exists"
