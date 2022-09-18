@@ -1,14 +1,15 @@
 
-# sets up a client SSH configuration file so that we can connect to a server without using a password
-include stdlib
-file_line { 'Declare identity file':
-  path    => '/etc/ssh/ssh_config',
-  line    => '    IdentityFile ~/.ssh/holberton',
-  replace => true,
-}
+# set up your client SSH configuration file so that you can connect
+# to a server without typing a password.
 
-file_line { 'Turn off passwd auth':
-  path    => '/etc/ssh/ssh_config',
-  line    => '    PasswordAuthentication no',
-  replace => true,
+include stdlib
+file_line {'change private key':
+  ensure => present,
+  path   => '/etc/ssh/ssh_config',
+  line   => 'IdentityFile ~/.ssh/school'
+}
+file_line {'no password':
+  ensure => present,
+  path   => '/etc/ssh/ssh_config',
+  line   => 'PasswordAuthentication no',
 }
