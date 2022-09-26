@@ -6,7 +6,7 @@ sudo apt-get -y install haproxy=2.6.\*
 cp /etc/default/haproxy default
 echo "ENABLED=1" >> default
 sudo cp default /etc/default/haproxy
-cp /etc/haproxy/haproxy.cfg confe
+cp /etc/haproxy/haproxy.cfg confd
 echo -e "\n\nfrontend myfrontend\n\tbind :80\n\tdefault_backend myservers" >> confe
 echo -e "\n\nbackend myservers\n\tbalance roundrobin" >> confe
 echo -e "\tserver 13234-web-01 44.200.43.53" >> confe
