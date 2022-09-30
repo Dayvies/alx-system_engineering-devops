@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+#tries to get information on domains
+# shellcheck disable=SC2086
+# shellcheck disable=SC2140
+func2 () {
+        if (( $# > 1)); then
+                dig "$2"."$1"| grep -A1 'ANSWER SECTION:'| tail -n 1|awk -v a="$2" '{ print "The subdomain " a " is a " $4F " record and points to " $5F }'
+        else
+                dig "www"."$1"| grep -A1 'ANSWER SECTION:'| tail -n 1|awk -v a="www" '{ print "The subdomain " a " is a " $4F " record and points to " $5F }'
+                dig "lb-01"."$1"| grep -A1 'ANSWER SECTION:'| tail -n 1|awk -v a="lb-01" '{ print "The subdomain " a " is a " $4F " record and points to " $5F }'
+                dig "web-01"."$1"| grep -A1 'ANSWER SECTION:'| tail -n 1|awk -v a="web-01" '{ print "The subdomain " a " is a " $4F " record and points to " $5F }'
+                dig "web-02"."$1"| grep -A1 'ANSWER SECTION:'| tail -n 1|awk -v a="web-02" '{ print "The subdomain " a " is a " $4F " record and points to " $5F }'
+        fi
+        return 0
+}
+func2 $1 $2
