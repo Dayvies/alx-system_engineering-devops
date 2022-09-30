@@ -1,0 +1,32 @@
+global
+        maxconn 2048
+        tune.ssl.default-dh-param 2048
+defaults
+        option forwardfor
+        option http-server-close
+        mode http
+        timeout connect 5000
+        timeout client  50000
+         timeout server  50000
+
+frontend www-http
+        bind *:80
+        http-request set-header X-Forwarded-Proto http
+        default_backend myservers
+
+frontend www-https
+        bind *:443 ssl crt /etc/haproxy/certs/www.davyies.tech.pem
+        http-request set-header X-Forwarded-Proto https
+        acl letsencrypt-acl path_beg /.well-known/acme-challenge/
+        use_backend letsencrypt-backend if letsencrypt-acl
+        default_backend myservers
+
+
+backend myservers
+        redirect scheme https code 301 if !{ ssl_fc }
+        balance roundrobin
+        server 13234-web-01 44.200.43.53:80 check
+        server 13234-web-02 3.238.104.57:80 check
+
+backend letsencrypt-backend
+        server letsencrypt 127.0.0.1:54321
