@@ -7,11 +7,10 @@ import csv
 import requests
 import sys
 
-id = sys.argv[1]
-
 
 def get_todos():
     """get employee task completion status"""
+    id = sys.argv[1]
     x = requests.get(
         'https://jsonplaceholder.typicode.com/users/{}'.format(id))
     user = x.json()
