@@ -1,11 +1,10 @@
 #!/usr/bin/python3
 """get the top ten posts of a subreddit"""
-import os
 import requests
 
 
 def top_ten(subreddit):
-    """subscriber numbers"""
+    """get top ten posts"""
     url = "https://www.reddit.com/r/{}/hot.json?limit=9".format(subreddit)
     headers = {'User-Agent': 'Alxdevs2'}
     response = requests.get(url, headers=headers)
