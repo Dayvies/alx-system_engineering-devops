@@ -4,7 +4,7 @@ import requests
 
 
 def count_words(subreddit, word_list):
-    """counts words in title"""
+    """counts words in titles"""
     if type(subreddit) is str:
         subtext = subreddit
         url = "https://www.reddit.com/r/{}/hot.json?limit=100".format(
