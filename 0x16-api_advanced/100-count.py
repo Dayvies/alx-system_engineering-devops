@@ -36,7 +36,14 @@ def count_words(subreddit, word_list):
             x = x + word_list.get(word)
             word_list.update({word: x})
     if data.get('after') is None:
-        sorted_result = sorted(word_list.items(), key=lambda x: (-x[1], x[0]))
+        word_lst2 = {}
+        for k, v in word_list.items():
+            if k.lower() in word_lst2:
+                x = v + word_list.get(k.lower())
+                word_lst2.update({k.lower(): x})
+            else:
+                word_lst2.update({k.lower(): v})
+        sorted_result = sorted(word_lst2.items(), key=lambda x: (-x[1], x[0]))
         for result in sorted_result:
             if result[1] > 0:
                 print("{}: {}".format(result[0], result[1]))
