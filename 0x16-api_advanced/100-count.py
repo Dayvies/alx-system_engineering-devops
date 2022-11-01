@@ -37,6 +37,8 @@ def count_words(subreddit, word_list):
             word_list.update({word: x})
     if data.get('after') is None:
         word_lst2 = {}
+        if sum(word_list.values()) < 1:
+                return
         for k, v in word_list.items():
             if k.lower() in word_lst2:
                 x = v + word_list.get(k.lower())
@@ -50,4 +52,4 @@ def count_words(subreddit, word_list):
         return
     else:
         list1 = [subtext, data.get('after')]
-        return(count_words(list1, word_list))
+        count_words(list1, word_list)
