@@ -1,0 +1,12 @@
+here this
+<Directory /var/www/>
+DirectoryIndex many.php
+
+        DirectoryIndex index.php
+        Options Indexes FollowSymLinks
+        AllowOverride None
+        Require all granted
+</Directory>
+
+after=me
+php php
