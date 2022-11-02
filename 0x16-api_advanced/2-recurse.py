@@ -21,8 +21,6 @@ def recurse(subreddit, hot_list=[]):
     if response.url != url:
         return None
     response = response.json()
-    if response.get('kind') != "Listing":
-        return None
     data = response.get('data')
     children = data.get('children')
     count = 0
