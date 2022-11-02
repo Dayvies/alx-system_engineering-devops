@@ -5,7 +5,7 @@ import requests
 
 def top_ten(subreddit):
     """get top ten posts"""
-    url = "https://www.reddit.com/r/{}/hot.json?limit=9".format(subreddit)
+    url = "https://www.reddit.com/r/{}/hot.json?limit=10".format(subreddit)
     headers = {'User-Agent': 'Alxdevs2'}
     response = requests.get(url, headers=headers)
     if response.url != url:
