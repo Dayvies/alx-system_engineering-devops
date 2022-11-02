@@ -25,8 +25,6 @@ def count_words(subreddit, word_list):
     if response.url != url:
         return
     response = response.json()
-    if response.get('kind') != "Listing":
-        return
     data = response.get('data')
     children = data.get('children')
     for child in children:
@@ -38,7 +36,7 @@ def count_words(subreddit, word_list):
     if data.get('after') is None:
         word_lst2 = {}
         if sum(word_list.values()) < 1:
-                return
+            return
         for k, v in word_list.items():
             if k.lower() in word_lst2:
                 x = v + word_list.get(k.lower())
